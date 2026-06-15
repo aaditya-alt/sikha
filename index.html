@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Sikha 💕</title>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -645,7 +647,7 @@
             </p>
         </div>
 
-        <!-- Card 4: Cheesy Questions (New, Replaces old Card 4) -->
+        <!-- Card 4: Cheesy Questions -->
         <div class="card" data-reveal>
             <div class="card-number">4</div>
             <h3>Thode aur cheesy sawaal... 🙈</h3>
@@ -660,7 +662,7 @@
             </p>
         </div>
 
-        <!-- Card 5: Dil ki baat (Renumbered from 6, modified) -->
+        <!-- Card 5: Dil ki baat -->
         <div class="card card-accent-top" data-reveal>
             <div class="card-number">5</div>
             <h3>Dil ki baat...</h3>
@@ -728,31 +730,58 @@
         <div class="footer-note">
             ✨ Made with <span style="color:#d4687c;">❤️</span> by Aaditya, sirf Sikha ke liye ✨
         </div>
-        <div class="audio-hint">
-            💡 Tip: Add a romantic song! Uncomment the audio tag below and add your song URL.<br>
-            <!-- <audio autoplay loop><source src="your-song.mp3" type="audio/mpeg"></audio> -->
-            <div style="text-align: center; margin: 20px 0;">
-  <button onclick="document.getElementById('bgMusic').play()" style="
-    background: #d4687c; 
-    color: white; 
-    border: none; 
-    padding: 12px 28px; 
-    border-radius: 50px; 
-    font-size: 1rem; 
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(212,104,124,0.3);
-    transition: 0.3s;
-    font-family: 'Poppins', sans-serif;">
-    🎵 Tap for a surprise song
-  </button>
-  <audio id="bgMusic" loop>
-    <source src="song.mp3" type="audio/mpeg">
-  </audio>
-</div>
+
+        <!-- Audio Button -->
+        <div style="text-align: center; margin: 20px 0;">
+            <button onclick="document.getElementById('bgMusic').play()" style="
+                background: #d4687c; 
+                color: white; 
+                border: none; 
+                padding: 12px 28px; 
+                border-radius: 50px; 
+                font-size: 1rem; 
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(212,104,124,0.3);
+                transition: 0.3s;
+                font-family: 'Poppins', sans-serif;">
+                🎵 Tap for a surprise song
+            </button>
+            <audio id="bgMusic" loop>
+                <source src="song.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </div>
 
     <script>
+        // ══════════════════════════════════════
+        // EmailJS Initialization (with your keys)
+        // ══════════════════════════════════════
+        (function(){
+            emailjs.init("9ziN7sn93nu0jzLCx"); // Your public key
+        })();
+
+        function sendVisitEmail() {
+            // Replace with your actual Template ID for "page visit"
+            emailjs.send("service_ufrojhf","template_gdyrkjq");
+
+                .then(() => console.log("Visit email sent"))
+                .catch(err => console.log("Visit email failed:", err));
+        }
+
+        function sendYesEmail() {
+            // Replace with your actual Template ID for "YES clicked"
+            emailjs.send("service_ufrojhf","template_ia8za78");
+
+                .then(() => console.log("YES email sent"))
+                .catch(err => console.log("YES email failed:", err));
+        }
+
+        // Send visit notification when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            sendVisitEmail();
+            // ... rest of existing load logic
+        });
+
         // ──────────────────────────────────────
         // FLOATING HEARTS BACKGROUND
         // ──────────────────────────────────────
@@ -770,16 +799,13 @@
             heart.style.animationDelay = '0s';
             heartsContainer.appendChild(heart);
 
-            // Remove after animation
             const duration = parseFloat(heart.style.animationDuration) * 1000;
             setTimeout(() => {
                 if (heart.parentNode) heart.parentNode.removeChild(heart);
             }, duration + 500);
         }
 
-        // Spawn hearts periodically
         setInterval(createFloatingHeart, 600);
-        // Initial burst
         for (let i = 0; i < 8; i++) {
             setTimeout(createFloatingHeart, i * 250);
         }
@@ -799,21 +825,15 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Once revealed, stop observing
                     revealObserver.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        revealElements.forEach(el => {
-            revealObserver.observe(el);
-        });
+        revealElements.forEach(el => revealObserver.observe(el));
 
-        // Also observe the confession card specifically
         const confessionCard = document.getElementById('confessionCard');
-        if (confessionCard) {
-            revealObserver.observe(confessionCard);
-        }
+        if (confessionCard) revealObserver.observe(confessionCard);
 
         // ──────────────────────────────────────
         // PLAYFUL "NO" BUTTON LOGIC
@@ -837,29 +857,18 @@
 
         function handleNoClick() {
             noClickCount++;
-
-            // Show tooltip with sad message
             const msgIndex = Math.min(noClickCount - 1, sadMessages.length - 1);
             noTooltip.textContent = sadMessages[msgIndex];
             noTooltip.classList.add('show');
 
-            // Hide tooltip after 2.5 seconds
             clearTimeout(noTooltip._timeout);
             noTooltip._timeout = setTimeout(() => {
                 noTooltip.classList.remove('show');
             }, 2500);
 
-            // Make No button smaller
-            if (noClickCount >= 2) {
-                btnNo.classList.add('shrink');
-            }
+            if (noClickCount >= 2) btnNo.classList.add('shrink');
+            if (noClickCount >= 1) btnYes.classList.add('grow');
 
-            // Make Yes button bigger
-            if (noClickCount >= 1) {
-                btnYes.classList.add('grow');
-            }
-
-            // After 3 clicks, move the No button randomly
             if (noClickCount >= 3) {
                 const rowRect = buttonRow.getBoundingClientRect();
                 const wrapperRect = noButtonWrapper.getBoundingClientRect();
@@ -871,7 +880,6 @@
                 noButtonWrapper.style.transform = `translate(${randomX}px, ${randomY}px)`;
             }
 
-            // After 5 clicks, No is basically gone
             if (noClickCount >= 5) {
                 btnNo.style.opacity = '0.2';
                 btnNo.style.pointerEvents = 'none';
@@ -886,7 +894,6 @@
             }
         }
 
-        // Reset No button position on mouse leave (if they haven't clicked too much)
         noButtonWrapper.addEventListener('mouseleave', () => {
             if (noClickCount < 5) {
                 setTimeout(() => {
@@ -901,21 +908,20 @@
         // SHE SAID YES! CELEBRATION
         // ──────────────────────────────────────
         function sheSaidYes() {
-            // Hide the buttons
+            // 💌 Send instant YES email
+            sendYesEmail();
+
             const buttonRowEl = document.getElementById('buttonRow');
             buttonRowEl.style.display = 'none';
 
             document.getElementById('bgMusic')?.play();
 
-            // Show success message
             const successMsg = document.getElementById('successMessage');
             successMsg.classList.add('show');
             successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Trigger confetti
             triggerCelebration();
 
-            // Disable No button permanently
             btnNo.style.pointerEvents = 'none';
             btnNo.style.opacity = '0.3';
         }
@@ -925,14 +931,9 @@
             overlay.classList.add('active');
             overlay.innerHTML = '';
 
-            const confettiEmojis = ['💖', '💕', '🌸', '✨', '💫', '🎉', '🥳', '💗', '💝', '🩷', '🌷', '🦋', '💘', '🌟', '💞',
-                '🎊', '💐', '🫶'
-            ];
-            const colors = ['#d4687c', '#f08a9e', '#ffb3c1', '#ffd0d8', '#fff0f3', '#fce4e0', '#c94b62', '#ff9eb5',
-                '#ffc2d1', '#ffe5ec'
-            ];
+            const confettiEmojis = ['💖', '💕', '🌸', '✨', '💫', '🎉', '🥳', '💗', '💝', '🩷', '🌷', '🦋', '💘', '🌟', '💞', '🎊', '💐', '🫶'];
+            const colors = ['#d4687c', '#f08a9e', '#ffb3c1', '#ffd0d8', '#fff0f3', '#fce4e0', '#c94b62', '#ff9eb5', '#ffc2d1', '#ffe5ec'];
 
-            // Create confetti pieces
             for (let i = 0; i < 120; i++) {
                 const piece = document.createElement('span');
                 piece.classList.add('confetti-piece');
@@ -944,14 +945,12 @@
                 piece.style.animationDelay = Math.random() * 1.5 + 's';
                 overlay.appendChild(piece);
 
-                // Clean up
                 const dur = parseFloat(piece.style.animationDuration) + parseFloat(piece.style.animationDelay);
                 setTimeout(() => {
                     if (piece.parentNode) piece.parentNode.removeChild(piece);
                 }, dur * 1000 + 500);
             }
 
-            // Also create colored dot confetti
             for (let i = 0; i < 80; i++) {
                 const dot = document.createElement('span');
                 dot.classList.add('confetti-piece');
@@ -972,7 +971,6 @@
                 }, dur * 1000 + 500);
             }
 
-            // Keep overlay active for a while then clean up
             setTimeout(() => {
                 overlay.classList.remove('active');
                 overlay.innerHTML = '';
@@ -980,13 +978,12 @@
         }
 
         // ──────────────────────────────────────
-        // INITIAL PAGE LOAD - gentle animation
+        // INITIAL PAGE LOAD (merged with EmailJS)
         // ──────────────────────────────────────
         window.addEventListener('DOMContentLoaded', () => {
-            // Scroll to top
+            // Visit email already sent by sendVisitEmail() at top
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // Add a slight delay then check for any visible elements
             setTimeout(() => {
                 revealElements.forEach(el => {
                     const rect = el.getBoundingClientRect();
@@ -999,7 +996,7 @@
         });
 
         // ──────────────────────────────────────
-        // SMOOTH SCROLL FOR BETTER UX
+        // SMOOTH SCROLL
         // ──────────────────────────────────────
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1012,8 +1009,6 @@
         });
 
         console.log('💕 Hey Sikha! If you\'re reading this... Aaditya really really likes you.');
-        console.log('🌸 This entire website was made just for you. Every single detail.');
-        console.log('💫 Now you know how much you mean to him.');
     </script>
 </body>
 </html>
