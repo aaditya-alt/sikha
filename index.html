@@ -905,6 +905,8 @@
             const buttonRowEl = document.getElementById('buttonRow');
             buttonRowEl.style.display = 'none';
 
+            document.getElementById('bgMusic')?.play();
+
             // Show success message
             const successMsg = document.getElementById('successMessage');
             successMsg.classList.add('show');
