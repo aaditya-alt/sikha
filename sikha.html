@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sikha 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-start: #fef5f0;
+            --bg-mid: #fce4e0;
+            --bg-end: #fad6d9;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --card-border: rgba(255, 255, 255, 0.9);
+            --text-primary: #4a2c2a;
+            --text-secondary: #6b3a38;
+            --accent: #d4687c;
+            --accent-dark: #b84d5f;
+            --accent-light: #f08a9e;
+            --gold: #c8946e;
+            --shadow: 0 8px 32px rgba(180, 100, 110, 0.18);
+            --shadow-lg: 0 20px 50px rgba(180, 100, 110, 0.25);
+            --radius: 24px;
+            --radius-sm: 16px;
+            --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fef5f0 0%, #fce4e0 25%, #fad6d9 50%, #fce4e0 75%, #fef5f0 100%);
+            background-size: 400% 400%;
+            animation: bgShift 20s ease-in-out infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text-primary);
+            line-height: 1.7;
+            position: relative;
+        }
+
+        @keyframes bgShift {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
+        }
+
+        /* Floating Hearts Container */
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            animation: floatUp linear forwards;
+            opacity: 0;
+            pointer-events: none;
+            filter: blur(0px);
+            will-change: transform, opacity;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg) scale(0.3);
+                opacity: 0;
+            }
+            8% {
+                opacity: 0.7;
+                transform: translateY(-30px) translateX(15px) rotate(20deg) scale(0.9);
+            }
+            60% {
+                opacity: 0.55;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-105vh) translateX(-30px) rotate(380deg) scale(0.1);
+                opacity: 0;
+            }
+        }
+
+        /* Main Wrapper */
+        .main-wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 20px 40px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px 30px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fad6d9, #f8c5cc);
+            color: var(--accent-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            animation: pulseBadge 3s ease-in-out infinite;
+            box-shadow: 0 4px 15px rgba(212, 104, 124, 0.25);
+        }
+
+        @keyframes pulseBadge {
+            0%,
+            100% {
+                box-shadow: 0 4px 15px rgba(212, 104, 124, 0.25);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 8px 28px rgba(212, 104, 124, 0.45);
+                transform: scale(1.04);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #d4687c, #c94b62);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline;
+        }
+
+        .hero-subtitle {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        .hero-emoji-row {
+            font-size: 2.5rem;
+            margin-top: 15px;
+            animation: bounceEmojis 2s ease-in-out infinite;
+        }
+        @keyframes bounceEmojis {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-14px);
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1.5px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 35px 28px;
+            margin: 24px 0;
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            will-change: transform, opacity;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px) scale(1.01);
+        }
+
+        .card.visible:hover {
+            transform: translateY(-4px) scale(1.01);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(250, 180, 190, 0.35) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .card-accent-top {
+            border-top: 3px solid var(--accent-light);
+        }
+
+        .card-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4687c, #e8879a);
+            color: #fff;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 38px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(212, 104, 124, 0.35);
+        }
+
+        .card h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .card .hinglish {
+            font-style: italic;
+            color: #5a2e2c;
+        }
+
+        .card .emphasis {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffe0e5, #ffd0d8);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #b84d5f;
+        }
+
+        /* Photo Gallery Placeholder */
+        .gallery-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .gallery-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .gallery-placeholder {
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, #fef0f3, #fde4e9);
+            border-radius: var(--radius-sm);
+            border: 2px dashed #e8b4be;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(180, 120, 130, 0.15);
+        }
+
+        .gallery-placeholder:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 28px rgba(212, 104, 124, 0.3);
+            transform: scale(1.03);
+        }
+        .gallery-placeholder .icon {
+            font-size: 3rem;
+            opacity: 0.7;
+        }
+        .gallery-placeholder .label {
+            font-size: 0.75rem;
+            color: #a07078;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+        .gallery-placeholder img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #fef0f3, #fde4e9);
+            border-radius: var(--radius-sm);
+            border: 2px dashed #e8b4be;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all var(--transition);
+            max-width: 500px;
+            margin: 16px auto;
+            box-shadow: 0 4px 16px rgba(180, 120, 130, 0.15);
+        }
+        .video-placeholder:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 28px rgba(212, 104, 124, 0.3);
+            transform: scale(1.02);
+        }
+        .video-placeholder .icon {
+            font-size: 3.5rem;
+            opacity: 0.7;
+        }
+        .video-placeholder .label {
+            font-size: 0.8rem;
+            color: #a07078;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Final Confession Section */
+        .confession-section {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .confession-card {
+            background: linear-gradient(135deg, #fff5f6, #fff0f2, #fef5f0);
+            border: 2px solid #f8c5cc;
+            border-radius: var(--radius);
+            padding: 40px 28px;
+            margin: 24px 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all var(--transition);
+        }
+
+        .confession-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .confession-card h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .confession-card .big-question {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-dark);
+            margin: 20px 0;
+            font-family: 'Dancing Script', cursive;
+            letter-spacing: 1px;
+        }
+
+        /* Yes/No Buttons */
+        .button-row {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 28px;
+            position: relative;
+            min-height: 65px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #d4687c, #c94b62);
+            color: #fff;
+            border: none;
+            padding: 16px 48px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.3);
+            box-shadow: 0 8px 28px rgba(200, 80, 100, 0.4);
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            z-index: 5;
+            animation: pulseYes 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseYes {
+            0%,
+            100% {
+                box-shadow: 0 8px 28px rgba(200, 80, 100, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 14px 38px rgba(200, 80, 100, 0.65);
+                transform: scale(1.06);
+            }
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 16px 40px rgba(200, 80, 100, 0.6);
+            background: linear-gradient(135deg, #e8879a, #d4687c);
+        }
+        .btn-yes:active {
+            transform: scale(0.95);
+        }
+        .btn-yes.grow {
+            transform: scale(1.25);
+            padding: 20px 56px;
+            font-size: 1.5rem;
+            animation: none;
+        }
+
+        .btn-no {
+            background: #f5f0f1;
+            color: #8a6e70;
+            border: 2px solid #e0d0d2;
+            padding: 14px 38px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            z-index: 4;
+            user-select: none;
+        }
+
+        .btn-no:hover {
+            background: #fce8ea;
+            border-color: #d4a0a8;
+            color: #6b4045;
+        }
+        .btn-no.shrink {
+            transform: scale(0.7);
+            opacity: 0.5;
+            padding: 8px 20px;
+            font-size: 0.8rem;
+        }
+
+        .no-tooltip {
+            position: absolute;
+            background: #5a2e2c;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        .no-tooltip.show {
+            opacity: 1;
+        }
+        .no-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #5a2e2c;
+        }
+
+        /* Celebration Overlay */
+        .celebration-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            display: none;
+        }
+        .celebration-overlay.active {
+            display: block;
+        }
+        .confetti-piece {
+            position: absolute;
+            animation: confettiFall linear forwards;
+            pointer-events: none;
+        }
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            margin: 20px 0;
+            animation: fadeInUp 0.7s ease forwards;
+        }
+        .success-message.show {
+            display: block;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .success-message h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--accent-dark);
+        }
+        .success-message .big-heart {
+            font-size: 5rem;
+            animation: bigHeartBeat 1s ease-in-out infinite;
+        }
+        @keyframes bigHeartBeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1);
+            }
+            70% {
+                transform: scale(1.25);
+            }
+        }
+
+        /* Audio hint */
+        .audio-hint {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #b09095;
+            margin-top: 30px;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer-note {
+            text-align: center;
+            padding: 30px 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .card {
+                padding: 24px 18px;
+                margin: 16px 0;
+                border-radius: 20px;
+            }
+            .card h3 {
+                font-size: 1.4rem;
+            }
+            .card p {
+                font-size: 0.95rem;
+            }
+            .confession-card h2 {
+                font-size: 1.8rem;
+            }
+            .confession-card .big-question {
+                font-size: 1.3rem;
+            }
+            .btn-yes {
+                padding: 14px 36px;
+                font-size: 1.1rem;
+            }
+            .btn-no {
+                padding: 12px 28px;
+                font-size: 0.95rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .button-row {
+                gap: 14px;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Hearts Background -->
+    <div id="hearts-container"></div>
+
+    <!-- Celebration Confetti Overlay -->
+    <div class="celebration-overlay" id="celebrationOverlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">✨ Sirf tumhare liye ✨</div>
+            <h1 class="hero-title">
+                Hey <span class="highlight">Sikha</span>...<br>han tum hi, Shivangi
+            </h1>
+            <p class="hero-subtitle">~ Aaditya ka dil ~</p>
+            <div class="hero-emoji-row">💕 🌸 💫</div>
+        </section>
+
+        <!-- Card 1: The First Feeling -->
+        <div class="card card-accent-top" data-reveal>
+            <div class="card-number">1</div>
+            <h3>Tumhe pata hai...?</h3>
+            <p>
+                Jab bhi <span class="emphasis">tum muskuraati ho</span>, na... poori duniya thodi si ruk jaati hai.
+                Aur main... main bas <span class="hinglish">dekhta reh jaata hoon</span>.
+                <br><br>
+                <span class="hinglish">Tumhari wo aankhen... jo kabhi kuch kehti hain, kabhi kuch. Aur main pagal, har baar confuse ho jaata hoon ki tum soch kya rahi ho.</span>
+                <br><br>
+                It's like you're a beautiful puzzle, and I just want to keep solving you... forever. 🧩💗
+            </p>
+        </div>
+
+        <!-- Card 2: Mixed Signals -->
+        <div class="card" data-reveal>
+            <div class="card-number">2</div>
+            <h3>Mixed Signals ki Queen 👑</h3>
+            <p>
+                <span class="hinglish">Tum toh expert ho Sikha!</span> Kabhi lagta hai tum bhi kuch feel karti ho...
+                kabhi lagta hai main sirf tumhara <span class="emphasis">'best friend'</span> hoon.
+                <br><br>
+                Kabhi <span class="hinglish">"Tum"</span> bol ke paas bulaati ho, kabhi <span class="hinglish">"aap"</span>
+                bol ke door kar deti ho. 🥲
+                <br><br>
+                But honestly? I love this chaos. Because <span class="hinglish">yeh jo thodi si umeed tum de deti ho na...
+                    ussi se main zinda hoon.</span> ✨
+            </p>
+        </div>
+
+        <!-- Card 3: The Previous Confession -->
+        <div class="card card-accent-top" data-reveal>
+            <div class="card-number">3</div>
+            <h3>Wo pehli baar...</h3>
+            <p>
+                <span class="hinglish">Maine pehle bhi try kiya tha na confess karne ka?</span> Aur tumne...
+                <span class="emphasis">ignore</span> kar diya tha. 🙈
+                <br><br>
+                But here's the thing — <span class="hinglish">main thoda ziddi hoon jab baat tumhari ho.</span>
+                Because <span class="hinglish">jo main feel karta hoon tumhare liye... wo itna real hai, itna deep hai,
+                    ki main ek baar aur try kar raha hoon.</span>
+                <br><br>
+                Not because I'm desperate. But because <span class="hinglish">tum worth ho har effort ke.</span> 💫
+            </p>
+        </div>
+
+        <!-- Card 4: Why This Website -->
+        <div class="card" data-reveal>
+            <div class="card-number">4</div>
+            <h3>Yeh sab kyun banaya?</h3>
+            <p>
+                Kyunki <span class="hinglish">tum special ho.</span> Aur special logon ke liye...
+                <span class="emphasis">special efforts</span> hone chahiye na.
+                <br><br>
+                <span class="hinglish">Yeh koi random website nahi hai jo maine kahi se utha li.</span>
+                Har line, har word, har color — <span class="hinglish">sab kuch tumhe dhyan mein rakh ke likha hai.</span>
+                <br><br>
+                From the way I call you <span class="hinglish">"Tum"</span> to tease you,
+                to the way you become all formal with <span class="hinglish">"aap"</span> when you're pretending to be angry...
+                <br><br>
+                <span class="hinglish">Main notice karta hoon sab. Because tum matter karti ho. Bohot zyada.</span> 🥺💖
+            </p>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <section class="gallery-section" data-reveal>
+            <h2 class="gallery-title">📸 Hamari Yaadein</h2>
+            <p style="text-align:center;color:#6b3a38;margin-bottom:16px;font-size:0.9rem;">
+                <em>~ Add our photos here, Sikha ~</em>
+            </p>
+            <div class="gallery-grid">
+                <!-- Replace the placeholder div backgrounds with actual <img> tags -->
+                <div class="gallery-placeholder" title="Add your photo here">
+                    <span class="icon">🖼️</span>
+                    <span class="label">Hamari photo 1</span>
+                    <!-- Replace above with: <img src="your-photo-url.jpg" alt="Us"> -->
+                </div>
+                <div class="gallery-placeholder" title="Add your photo here">
+                    <span class="icon">📷</span>
+                    <span class="label">Hamari photo 2</span>
+                    <!-- Replace above with: <img src="your-photo-url.jpg" alt="Us"> -->
+                </div>
+                <div class="gallery-placeholder" title="Add your photo here">
+                    <span class="icon">🌟</span>
+                    <span class="label">Hamari photo 3</span>
+                    <!-- Replace above with: <img src="your-photo-url.jpg" alt="Us"> -->
+                </div>
+                <div class="gallery-placeholder" title="Add your photo here">
+                    <span class="icon">💫</span>
+                    <span class="label">Hamari photo 4</span>
+                    <!-- Replace above with: <img src="your-photo-url.jpg" alt="Us"> -->
+                </div>
+            </div>
+            <div class="video-placeholder" title="Add your video here" style="margin-top:16px;">
+                <span class="icon">🎬</span>
+                <span class="label">Hamari video — add here</span>
+                <!-- Replace with: <video controls style="width:100%;height:100%;border-radius:16px;"><source src="your-video.mp4" type="video/mp4"></video> -->
+            </div>
+        </section>
+
+        <!-- Card 5: Cheesy Questions -->
+        <div class="card card-accent-top" data-reveal>
+            <div class="card-number">5</div>
+            <h3>Thode cheesy sawaal... 🙈</h3>
+            <p>
+                <span class="hinglish">Agar main tumse ek cheez maangu... toh dogi?</span> 🥺
+                <br><br>
+                <span class="hinglish">Tumhe kya lagta hai, hum dono ek saath kaise lagte hain?</span>
+                <br>
+                → Like, be honest. <span class="hinglish">Thoda sa toh sochti hogi na humare baare mein?</span>
+                <br><br>
+                If I told you I dream about you... would you think I'm crazy?
+                <br>
+                Ya phir... <span class="emphasis">cute?</span> 😳💭
+                <br><br>
+                <span class="hinglish">Ek aur baat... jab tum ignore karti ho na, toh bohot bura lagta hai.
+                    But phir bhi main tumse pyaar karta hoon. Pagal hoon na main? </span> 🤷‍♂️💕
+            </p>
+        </div>
+
+        <!-- Card 6: The Real Talk -->
+        <div class="card" data-reveal>
+            <div class="card-number">6</div>
+            <h3>Dil ki baat...</h3>
+            <p>
+                <span class="hinglish">Dekho Sikha, main bohot sochta hoon tumhare baare mein.</span>
+                <br><br>
+                Tum sirf meri best friend nahi ho. Tum wo insaan ho jiske saath main apna har din bitana chahta hoon.
+                <span class="hinglish">Tumhari hassi sunna, tumhari aankhon mein dekhte rehna, tumse bekar ki baatein karna...</span>
+                <br><br>
+                <span class="hinglish">Yeh sab choti choti cheezein hain, but inhi se toh zindagi banti hai na?</span>
+                <br><br>
+                I know I'm not perfect. But I promise you this —
+                <span class="emphasis">main tumhe duniya ki har khushi dene ki koshish karunga.</span>
+                <br><br>
+                <span class="hinglish">Bas ek mauka de do. Please? 🥺</span>
+            </p>
+        </div>
+
+        <!-- The Final Confession -->
+        <section class="confession-section" data-reveal>
+            <div class="confession-card" id="confessionCard">
+                <h2>
+                    <span class="hinglish">Toh...</span> Shivangi... Sikha...<br>
+                    <span class="hinglish">Meri jaan...</span>
+                </h2>
+                <p style="font-size:1.1rem;color:#4a2c2a;line-height:1.8;">
+                    <span class="hinglish">Maine sab kuch keh diya jo mere dil mein tha.</span>
+                    <br>
+                    Now it's your turn. <span class="hinglish">Bas ek simple sa sawaal hai...</span>
+                </p>
+                <div class="big-question">
+                    Will you be more than just my best friend? 💍<br>
+                    <span style="font-size:1rem;font-weight:400;color:#6b3a38;">
+                        <span class="hinglish">Kya tum... meri banogi?</span> 🌸
+                    </span>
+                </div>
+                <div class="button-row" id="buttonRow">
+                    <button class="btn-yes" id="btnYes" onclick="sheSaidYes()">
+                        Haan! 💖
+                    </button>
+                    <div style="position:relative;display:inline-block;" id="noButtonWrapper">
+                        <button class="btn-no" id="btnNo" onclick="handleNoClick()">
+                            Na... 🙈
+                        </button>
+                        <div class="no-tooltip" id="noTooltip">Aise kaise na bol diya? 🥺 Soch lo ek baar...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Message (Hidden initially) -->
+        <div class="success-message" id="successMessage">
+            <div class="big-heart">💖</div>
+            <h3>She Said YES! 🎉</h3>
+            <p style="font-size:1.2rem;color:#4a2c2a;margin-top:10px;">
+                <span class="hinglish">Mujhe pata tha! I knew tum bhi kuch feel karti ho!</span>
+                <br><br>
+                <span class="hinglish">Ab se... tum sirf meri best friend nahi,</span>
+                <br>
+                <span class="emphasis" style="font-size:1.4rem;">tum meri duniya ho.</span> 🌍💕
+                <br><br>
+                <span class="hinglish">I love you, Sikha. Meri Shivangi. 💫</span>
+                <br><br>
+                — <em>Tumhara Aaditya</em> 🧸
+            </p>
+        </div>
+
+        <div class="footer-note">
+            ✨ Made with <span style="color:#d4687c;">❤️</span> by Aaditya, sirf Sikha ke liye ✨
+        </div>
+        <div class="audio-hint">
+            💡 Tip: Add a romantic song! Uncomment the audio tag below and add your song URL.<br>
+            <!-- <audio autoplay loop><source src="your-song.mp3" type="audio/mpeg"></audio> -->
+        </div>
+    </div>
+
+    <script>
+        // ──────────────────────────────────────
+        // FLOATING HEARTS BACKGROUND
+        // ──────────────────────────────────────
+        const heartsContainer = document.getElementById('hearts-container');
+        const heartEmojis = ['💕', '💖', '💗', '💓', '💝', '🩷', '🌸', '✨', '💫', '🫶', '💘', '🌷', '🦋', '💞'];
+
+        function createFloatingHeart() {
+            const heart = document.createElement('span');
+            heart.classList.add('floating-heart');
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 95 + '%';
+            heart.style.bottom = '-30px';
+            heart.style.fontSize = (Math.random() * 28 + 14) + 'px';
+            heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
+            heart.style.animationDelay = '0s';
+            heartsContainer.appendChild(heart);
+
+            // Remove after animation
+            const duration = parseFloat(heart.style.animationDuration) * 1000;
+            setTimeout(() => {
+                if (heart.parentNode) heart.parentNode.removeChild(heart);
+            }, duration + 500);
+        }
+
+        // Spawn hearts periodically
+        setInterval(createFloatingHeart, 600);
+        // Initial burst
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createFloatingHeart, i * 250);
+        }
+
+        // ──────────────────────────────────────
+        // SCROLL REVEAL ANIMATIONS
+        // ──────────────────────────────────────
+        const revealElements = document.querySelectorAll('[data-reveal], .confession-card, .gallery-section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.15,
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Once revealed, stop observing
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Also observe the confession card specifically
+        const confessionCard = document.getElementById('confessionCard');
+        if (confessionCard) {
+            revealObserver.observe(confessionCard);
+        }
+
+        // ──────────────────────────────────────
+        // PLAYFUL "NO" BUTTON LOGIC
+        // ──────────────────────────────────────
+        let noClickCount = 0;
+        const btnNo = document.getElementById('btnNo');
+        const btnYes = document.getElementById('btnYes');
+        const noTooltip = document.getElementById('noTooltip');
+        const noButtonWrapper = document.getElementById('noButtonWrapper');
+        const buttonRow = document.getElementById('buttonRow');
+
+        const sadMessages = [
+            'Aise kaise na bol diya? 🥺 Soch lo ek baar...',
+            'Itna jaldi? Ek aur baar socho... 💔',
+            'Dil todd diya tumne toh... 😢',
+            'Please? 🥺🙏',
+            'Sikha... itni nirdayi mat bano... 💔',
+            'Main itna bura bhi nahi hoon... 😭',
+            'Ek aur mauka? Please? 🌸',
+        ];
+
+        function handleNoClick() {
+            noClickCount++;
+
+            // Show tooltip with sad message
+            const msgIndex = Math.min(noClickCount - 1, sadMessages.length - 1);
+            noTooltip.textContent = sadMessages[msgIndex];
+            noTooltip.classList.add('show');
+
+            // Hide tooltip after 2.5 seconds
+            clearTimeout(noTooltip._timeout);
+            noTooltip._timeout = setTimeout(() => {
+                noTooltip.classList.remove('show');
+            }, 2500);
+
+            // Make No button smaller
+            if (noClickCount >= 2) {
+                btnNo.classList.add('shrink');
+            }
+
+            // Make Yes button bigger
+            if (noClickCount >= 1) {
+                btnYes.classList.add('grow');
+            }
+
+            // After 3 clicks, move the No button randomly
+            if (noClickCount >= 3) {
+                const rowRect = buttonRow.getBoundingClientRect();
+                const wrapperRect = noButtonWrapper.getBoundingClientRect();
+                const maxX = rowRect.width - wrapperRect.width;
+                const maxY = rowRect.height - wrapperRect.height;
+                const randomX = Math.max(-60, Math.min(maxX + 40, (Math.random() - 0.5) * 200));
+                const randomY = Math.max(-40, Math.min(maxY + 30, (Math.random() - 0.5) * 100));
+                noButtonWrapper.style.transition = 'all 0.3s ease';
+                noButtonWrapper.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            }
+
+            // After 5 clicks, No is basically gone
+            if (noClickCount >= 5) {
+                btnNo.style.opacity = '0.2';
+                btnNo.style.pointerEvents = 'none';
+                btnNo.style.transform = 'scale(0.4)';
+                btnYes.classList.add('grow');
+                noTooltip.textContent = 'Bas Yes hi bacha hai ab... 💖';
+                noTooltip.classList.add('show');
+                clearTimeout(noTooltip._timeout);
+                noTooltip._timeout = setTimeout(() => {
+                    noTooltip.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        // Reset No button position on mouse leave (if they haven't clicked too much)
+        noButtonWrapper.addEventListener('mouseleave', () => {
+            if (noClickCount < 5) {
+                setTimeout(() => {
+                    if (noClickCount < 3) {
+                        noButtonWrapper.style.transform = 'translate(0, 0)';
+                    }
+                }, 600);
+            }
+        });
+
+        // ──────────────────────────────────────
+        // SHE SAID YES! CELEBRATION
+        // ──────────────────────────────────────
+        function sheSaidYes() {
+            // Hide the buttons
+            const buttonRowEl = document.getElementById('buttonRow');
+            buttonRowEl.style.display = 'none';
+
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Trigger confetti
+            triggerCelebration();
+
+            // Disable No button permanently
+            btnNo.style.pointerEvents = 'none';
+            btnNo.style.opacity = '0.3';
+        }
+
+        function triggerCelebration() {
+            const overlay = document.getElementById('celebrationOverlay');
+            overlay.classList.add('active');
+            overlay.innerHTML = '';
+
+            const confettiEmojis = ['💖', '💕', '🌸', '✨', '💫', '🎉', '🥳', '💗', '💝', '🩷', '🌷', '🦋', '💘', '🌟', '💞',
+                '🎊', '💐', '🫶'
+            ];
+            const colors = ['#d4687c', '#f08a9e', '#ffb3c1', '#ffd0d8', '#fff0f3', '#fce4e0', '#c94b62', '#ff9eb5',
+                '#ffc2d1', '#ffe5ec'
+            ];
+
+            // Create confetti pieces
+            for (let i = 0; i < 120; i++) {
+                const piece = document.createElement('span');
+                piece.classList.add('confetti-piece');
+                piece.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.top = -(Math.random() * 40 + 5) + 'px';
+                piece.style.fontSize = (Math.random() * 30 + 18) + 'px';
+                piece.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                piece.style.animationDelay = Math.random() * 1.5 + 's';
+                overlay.appendChild(piece);
+
+                // Clean up
+                const dur = parseFloat(piece.style.animationDuration) + parseFloat(piece.style.animationDelay);
+                setTimeout(() => {
+                    if (piece.parentNode) piece.parentNode.removeChild(piece);
+                }, dur * 1000 + 500);
+            }
+
+            // Also create colored dot confetti
+            for (let i = 0; i < 80; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('confetti-piece');
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.top = -(Math.random() * 50 + 10) + 'px';
+                dot.style.width = (Math.random() * 12 + 5) + 'px';
+                dot.style.height = (Math.random() * 12 + 5) + 'px';
+                dot.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                dot.style.borderRadius = Math.random() > 0.5 ? '50%' : '3px';
+                dot.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                dot.style.animationDelay = Math.random() * 2 + 's';
+                dot.style.display = 'inline-block';
+                overlay.appendChild(dot);
+
+                const dur = parseFloat(dot.style.animationDuration) + parseFloat(dot.style.animationDelay);
+                setTimeout(() => {
+                    if (dot.parentNode) dot.parentNode.removeChild(dot);
+                }, dur * 1000 + 500);
+            }
+
+            // Keep overlay active for a while then clean up
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                overlay.innerHTML = '';
+            }, 7000);
+        }
+
+        // ──────────────────────────────────────
+        // INITIAL PAGE LOAD - gentle animation
+        // ──────────────────────────────────────
+        window.addEventListener('DOMContentLoaded', () => {
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Add a slight delay then check for any visible elements
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('visible');
+                        revealObserver.unobserve(el);
+                    }
+                });
+            }, 400);
+        });
+
+        // ──────────────────────────────────────
+        // SMOOTH SCROLL FOR BETTER UX
+        // ──────────────────────────────────────
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        console.log('💕 Hey Sikha! If you\'re reading this... Aaditya really really likes you.');
+        console.log('🌸 This entire website was made just for you. Every single detail.');
+        console.log('💫 Now you know how much you mean to him.');
+    </script>
+</body>
+</html>
