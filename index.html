@@ -277,100 +277,6 @@
             color: #b84d5f;
         }
 
-        /* Photo Gallery Placeholder */
-        .gallery-section {
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .gallery-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .gallery-placeholder {
-            aspect-ratio: 1 / 1;
-            background: linear-gradient(135deg, #fef0f3, #fde4e9);
-            border-radius: var(--radius-sm);
-            border: 2px dashed #e8b4be;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            cursor: pointer;
-            transition: all var(--transition);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(180, 120, 130, 0.15);
-        }
-
-        .gallery-placeholder:hover {
-            border-color: var(--accent);
-            box-shadow: 0 8px 28px rgba(212, 104, 124, 0.3);
-            transform: scale(1.03);
-        }
-        .gallery-placeholder .icon {
-            font-size: 3rem;
-            opacity: 0.7;
-        }
-        .gallery-placeholder .label {
-            font-size: 0.75rem;
-            color: #a07078;
-            margin-top: 6px;
-            font-weight: 500;
-        }
-        .gallery-placeholder img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: var(--radius-sm);
-        }
-
-        /* Video Placeholder */
-        .video-placeholder {
-            aspect-ratio: 16 / 9;
-            background: linear-gradient(135deg, #fef0f3, #fde4e9);
-            border-radius: var(--radius-sm);
-            border: 2px dashed #e8b4be;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            cursor: pointer;
-            transition: all var(--transition);
-            max-width: 500px;
-            margin: 16px auto;
-            box-shadow: 0 4px 16px rgba(180, 120, 130, 0.15);
-        }
-        .video-placeholder:hover {
-            border-color: var(--accent);
-            box-shadow: 0 8px 28px rgba(212, 104, 124, 0.3);
-            transform: scale(1.02);
-        }
-        .video-placeholder .icon {
-            font-size: 3.5rem;
-            opacity: 0.7;
-        }
-        .video-placeholder .label {
-            font-size: 0.8rem;
-            color: #a07078;
-            margin-top: 6px;
-            font-weight: 500;
-        }
-
         /* Final Confession Section */
         .confession-section {
             text-align: center;
@@ -665,10 +571,6 @@
                 padding: 12px 28px;
                 font-size: 0.95rem;
             }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
             .button-row {
                 gap: 14px;
                 flex-direction: row;
@@ -694,7 +596,7 @@
             <h1 class="hero-title">
                 Hey <span class="highlight">Sikha</span>...<br>han tum hi, Shivangi
             </h1>
-            <p class="hero-subtitle">~ Aaditya ka dil ~</p>
+            <p class="hero-subtitle">~ tumhara apna Aaditya 💙 ~</p>
             <div class="hero-emoji-row">💕 🌸 💫</div>
         </section>
 
@@ -708,7 +610,7 @@
                 <br><br>
                 <span class="hinglish">Tumhari wo aankhen... jo kabhi kuch kehti hain, kabhi kuch. Aur main pagal, har baar confuse ho jaata hoon ki tum soch kya rahi ho.</span>
                 <br><br>
-                It's like you're a beautiful puzzle, and I just want to keep solving you... forever. 🧩💗
+                I swear, teri smile dekh ke din accha ho jata hai. Bas yehi sochta rehta hoon ki tu mere saath hai. 💗
             </p>
         </div>
 
@@ -734,74 +636,45 @@
             <h3>Wo pehli baar...</h3>
             <p>
                 <span class="hinglish">Maine pehle bhi try kiya tha na confess karne ka?</span> Aur tumne...
-                <span class="emphasis">ignore</span> kar diya tha. 🙈
+                <span class="emphasis">ignore</span> kar diya tha. 🌚
                 <br><br>
-                But here's the thing — <span class="hinglish">main thoda ziddi hoon jab baat tumhari ho.</span>
-                Because <span class="hinglish">jo main feel karta hoon tumhare liye... wo itna real hai, itna deep hai,
-                    ki main ek baar aur try kar raha hoon.</span>
+                But I get it — maybe tu sure nahi thi, ya confuse thi. Par main ziddi hoon thoda.
+                <span class="hinglish">Jo main feel karta hoon tumhare liye... wo real hai, aur chup nahi reh sakta.</span>
                 <br><br>
-                Not because I'm desperate. But because <span class="hinglish">tum worth ho har effort ke.</span> 💫
+                Isliye firse bol raha hoon. Because you deserve to know, and I deserve a chance. 🥺
             </p>
         </div>
 
-        <!-- Card 4: Why This Website -->
+        <!-- Card 4: Cheesy Questions (New, Replaces old Card 4) -->
         <div class="card" data-reveal>
             <div class="card-number">4</div>
-            <h3>Yeh sab kyun banaya?</h3>
+            <h3>Thode aur cheesy sawaal... 🙈</h3>
             <p>
-                Kyunki <span class="hinglish">tum special ho.</span> Aur special logon ke liye...
-                <span class="emphasis">special efforts</span> hone chahiye na.
+                <span class="hinglish">Agar main roz subah tujhe "Good Morning Beautiful" bolun, toh ek din bore ho jaegi kya? 😅</span>
                 <br><br>
-                <span class="hinglish">Yeh koi random website nahi hai jo maine kahi se utha li.</span>
-                Har line, har word, har color — <span class="hinglish">sab kuch tumhe dhyan mein rakh ke likha hai.</span>
+                <span class="hinglish">Teri wo ek aadat jo mujhe sabse zyada pagal bana deti hai — bata na? 👀</span>
                 <br><br>
-                From the way I call you <span class="hinglish">"Tum"</span> to tease you,
-                to the way you become all formal with <span class="hinglish">"aap"</span> when you're pretending to be angry...
+                <span class="hinglish">Agar hum kahin ghoomne gaye aur main haath pakad lun, toh tu haath chhudayegi ya pakad ke rakhegi? 🥺👉👈</span>
                 <br><br>
-                <span class="hinglish">Main notice karta hoon sab. Because tum matter karti ho. Bohot zyada.</span> 🥺💖
+                <span class="hinglish">Kabhi aisa feel hua hai ki "Aaditya sirf mera ho"? Thoda sa bhi? 🥹</span>
+                <br><br>
+                <span class="hinglish">Last wala serious: agar main bina dare, saamne se bol dun ki "Sikha, I love you. Be my girlfriend?", toh tu kya karegi? 👀💭</span>
             </p>
         </div>
 
-        <!-- Photo Gallery Section -->
-        
-            
-
-        <!-- Card 5: Cheesy Questions -->
+        <!-- Card 5: Dil ki baat (Renumbered from 6, modified) -->
         <div class="card card-accent-top" data-reveal>
             <div class="card-number">5</div>
-            <h3>Thode cheesy sawaal... 🙈</h3>
-            <p>
-                <span class="hinglish">Agar main tumse ek cheez maangu... toh dogi?</span> 🥺
-                <br><br>
-                <span class="hinglish">Tumhe kya lagta hai, hum dono ek saath kaise lagte hain?</span>
-                <br>
-                → Like, be honest. <span class="hinglish">Thoda sa toh sochti hogi na humare baare mein?</span>
-                <br><br>
-                If I told you I dream about you... would you think I'm crazy?
-                <br>
-                Ya phir... <span class="emphasis">cute?</span> 😳💭
-                <br><br>
-                <span class="hinglish">Ek aur baat... jab tum ignore karti ho na, toh bohot bura lagta hai.
-                    But phir bhi main tumse pyaar karta hoon. Pagal hoon na main? </span> 🤷‍♂️💕
-            </p>
-        </div>
-
-        <!-- Card 6: The Real Talk -->
-        <div class="card" data-reveal>
-            <div class="card-number">6</div>
             <h3>Dil ki baat...</h3>
             <p>
-                <span class="hinglish">Dekho Sikha, main bohot sochta hoon tumhare baare mein.</span>
+                <span class="hinglish">Sikha, honest bolun? Tu mere dimaag se utarti hi nahi. Har time bas tera khayal aata hai.</span>
                 <br><br>
-                Tum sirf meri best friend nahi ho. Tum wo insaan ho jiske saath main apna har din bitana chahta hoon.
-                <span class="hinglish">Tumhari hassi sunna, tumhari aankhon mein dekhte rehna, tumse bekar ki baatein karna...</span>
+                Tu sirf meri best friend nahi hai — tu woh insaan hai jiske saath main chai ki tapri pe bhi khush reh lun.
+                <span class="hinglish">Teri annoying aadatein bhi cute lagti hain mujhe. I know, thoda pagal hoon.</span>
                 <br><br>
-                <span class="hinglish">Yeh sab choti choti cheezein hain, but inhi se toh zindagi banti hai na?</span>
+                I'm not trying to be perfect. Bas <span class="emphasis">tere saath rehna chahta hoon, har din, aise hi.</span>
                 <br><br>
-                I know I'm not perfect. But I promise you this —
-                <span class="emphasis">main tumhe duniya ki har khushi dene ki koshish karunga.</span>
-                <br><br>
-                <span class="hinglish">Bas ek mauka de do. Please? 🥺</span>
+                <span class="hinglish">Toh please, ek baar soch le. Main intezaar kar lunga. 💙</span>
             </p>
         </div>
 
